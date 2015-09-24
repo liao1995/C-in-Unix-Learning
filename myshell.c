@@ -2,15 +2,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
 
 #define MAXLINE 1024
+
+static void sigint_handle(int);
 
 int main()
 {
 	pid_t pid;
 	int status;
 	char cmd[MAXLINE];
-	
+
+	if (signal(SIGINT, sigint_handle) == SIG_ERR){
+		perror("signal");
+		exit(1);
+	}	
+
 	printf("%% ");
 	while (fgets(cmd, MAXLINE, stdin)){
 		if (cmd[strlen(cmd) - 1] == '\n')
@@ -26,4 +34,9 @@ int main()
 		printf("%% ");
 	} 
 	return 0;
+}
+
+void sigint_handle(int signo){
+	printf("interrupt\n%%");
+	fflush(stdout);
 }
