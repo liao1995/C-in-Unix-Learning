@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1487777063 source:/home/liao/C-in-Unix-Learning/Elgent_FuncPtr/main.cpp
+	<iostream>
+	<vector>
+

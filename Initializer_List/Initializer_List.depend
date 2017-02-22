@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1487761226 source:/home/liao/C-in-Unix-Learning/Initializer_List/main.cpp
+	<iostream>
+	<string>
+
